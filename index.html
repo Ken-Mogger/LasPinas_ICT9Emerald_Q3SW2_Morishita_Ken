@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Calc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 50px auto;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2> Math Calculator</h2>
+        <label for="a">Enter a value for a:</label>
+        <input type="number" id="a">
+        <label for="b">Enter a value for b:</label>
+        <input type="number" id="b">
+        <button onclick="calculate('product')">Product of a and b</button>
+        <button onclick="calculate('power')">a raised to b</button>
+        <button onclick="calculate('remainder')">Get the remainder</button>
+        <button onclick="calculate('equal')">Check if a is equal to b</button>
+        <p class="result"  id="result"></p>
+    </div>   
+    <script> 
+        function calculate(operation) {
+            let a = parseFloat(document.getElementById)('a').value;
+            let b = parseFloat(document.getElementById)('b').value;
+            let result = '';
+            if (isNaN(a) || isNaN(b)) {
+                result = 'Please enter valid numbers';
+            } else {
+                switch(operation) {
+                    case 'product':
+                        result = `Product: ${a * b}`;
+                        break;
+                    case 'power':
+                        result = `a^b: ${Math.pow(a, b)}`;
+                        break;
+                    case 'remainder':
+                        result = `Remainder: ${a % b}`;
+                        break;
+                    case 'equal':
+                        result = a === b ? 'a is equal to b' : 'a is not equal to b';
+                        break;
+                }
+            }
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
